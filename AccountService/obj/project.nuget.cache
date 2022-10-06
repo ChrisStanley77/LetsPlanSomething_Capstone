@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "STdZkaBx6hcRDfvOaK8eJCPmAh/jBTX+3ZCWI8zfv+yalPuiHZCtVONQWQWuvQTG2iD3mPdBeifVW9H0G3KgHQ==",
+  "dgSpecHash": "zMUfeFPb0SR41+YBh1rD++v9XLnlfdNunN+sj6aH5pdNYMhQCJ5oe2lLLvfsWjqW0ziWXhZvSXSnDyalmb40qQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
+  "projectFilePath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
