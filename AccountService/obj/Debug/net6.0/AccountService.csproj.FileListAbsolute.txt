@@ -52,3 +52,10 @@ C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\AccountService.pdb
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\AccountService.genruntimeconfig.cache
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\ref\AccountService.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\bin\Debug\net6.0\BouncyCastle.Crypto.dll

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AccountDB>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("users")));
+builder.Services.AddDbContext<AccountDB>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("users")));
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

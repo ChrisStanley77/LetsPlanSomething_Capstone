@@ -2,7 +2,10 @@ using Microsoft.EntityFrameworkCore;
 
 public class AccountDB : DbContext
 {
-    public AccountDB(DbContextOptions<AccountDB> options) : base(options) { }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseMySQL("server=localhost;database=letsplansomething;user=root;password=abc123!!@");
+    }
     public DbSet<Account> Accounts => Set<Account>();
 
     public AccountDB()

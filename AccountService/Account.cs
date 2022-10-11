@@ -11,4 +11,13 @@ public class Account
     public string Username {get; set;} = null!;
     //Password field
     public string Password {get; set;} = null!;
+
+    public Account(string Firstname, string Lastname, string Email, string Username, string Password)
+    {
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+        this.Email = Email;
+        this.Username = Username;
+        this.Password = Password;
+    }
 }
