@@ -20,7 +20,6 @@ namespace Controllers
         [HttpPost]
         public async Task<IResult> CreateAccount(Account account)
         {
-            System.Console.WriteLine("Inside the create method.");
             _ACDB.Accounts.Add(account);
             await _ACDB.SaveChangesAsync();
             return Results.Created($"/{account.Username}", account);
@@ -51,9 +50,10 @@ namespace Controllers
 ////////////////////////////////////////////////// Account Update Endpoints ///////////////////////////////////////////////////////////////////
 
         //Update account by email
+        [HttpPut]
         public async Task<IResult> UpdateAccount(Account accountUpdateWith)
         {
-            var accountToUpdate = await _ACDB.Accounts.FindAsync(accountUpdateWith.Id);
+            var accountToUpdate = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username.Equals(accountUpdateWith.Username));
 
             if(accountToUpdate == null)
             {
@@ -74,10 +74,10 @@ namespace Controllers
 ////////////////////////////////////////////////// Account Delete Endpoints //////////////////////////////////////////////////////////////////
 
         //Delete account by email
-        [HttpDelete("{id}")]
+        [HttpDelete("{email}")]
         public async Task<IResult> DeleteAccount(string email)
         {
-            if(await _ACDB.Accounts.FindAsync(email) is Account account)
+            if(await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Email.Equals(email)) is Account account)
             {
                 _ACDB.Accounts.Remove(account);
                 await _ACDB.SaveChangesAsync();
