@@ -48,9 +48,9 @@
               "target": "Package",
               "version": "[6.0.7, )"
             },
-            "MySql.Data": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.31, )"
+              "version": "[6.0.7, )"
             }
           },
           "imports": [

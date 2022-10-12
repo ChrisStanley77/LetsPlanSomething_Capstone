@@ -20,6 +20,7 @@ namespace Controllers
         [HttpPost]
         public async Task<IResult> CreateAccount(Account account)
         {
+            System.Console.WriteLine("Inside the create method.");
             _ACDB.Accounts.Add(account);
             await _ACDB.SaveChangesAsync();
             return Results.Created($"/{account.Username}", account);
@@ -39,6 +40,12 @@ namespace Controllers
             }
 
             return Ok(account);
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public ActionResult<String> TestEndPoint(){
+            return "Test Succesful";
         }
 
 ////////////////////////////////////////////////// Account Update Endpoints ///////////////////////////////////////////////////////////////////

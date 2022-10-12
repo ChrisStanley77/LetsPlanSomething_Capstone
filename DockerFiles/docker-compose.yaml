@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+
+  # Service Example / Notes
+  # ==================
+  # name_of_service:                                    # This can be any name you want
+  #   build: ./docker/<folder_name_here>                # This is where you would have dockerfile plus any required dlls, jars, files, etc
+  #   image: <desired_image_name_here>                  # This is where you can put the desired name of the image for when it gets built
+  #   container_name: <desired_container_name_here>     # This is where you can put the desired name of the container for when it gets built
+  #   ports:
+  #     - "<container_port>:<virtual_port>"             # This is where you can put the desired ports
+  #   networks:
+  #     - <network_name_here>                           # This is where you can attach this service to a desired network 
+  
+  account_database:
+    build: ./docker/sql_creation
+    image: sql-test-creation:1.0
+    container_name: sqlserver
+    ports:
+      - "10020:1433"
+    networks:
+      - basenetwork
+  
+networks:
+  basenetwork:
+    name: "capstone"
