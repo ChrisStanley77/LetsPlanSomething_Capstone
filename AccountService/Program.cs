@@ -13,6 +13,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+app.UseAuthentication();
 app.MapControllers();
 app.UseCors();
 
