@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WXJkwv5Kv7dWh7ME99kMsvpdCrZCVWKISZu82LteSUdBAbj5aBsGOPX8uLDnJuzDSZYaq4+xPTFqSfIeHNKScQ==",
-  "success": false,
-  "projectFilePath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
+  "dgSpecHash": "hiZcBtMSlRk8sm7PXLlvFO8YtckMmcy0eUOcaW6bNgpJYxwuIYtbTT3avcKeQYALFLnC8kd0jCIw7bdJrQYYGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.0-rc.2.22476.2\\microsoft.aspnetcore.authentication.jwtbearer.7.0.0-rc.2.22476.2.nupkg.sha512",
+    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -26,8 +26,8 @@
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.24.0\\microsoft.identitymodel.abstractions.6.24.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.24.0\\microsoft.identitymodel.jsonwebtokens.6.24.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.logging\\6.24.0\\microsoft.identitymodel.logging.6.24.0.nupkg.sha512",
-    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.8.0\\microsoft.identitymodel.protocols.6.8.0.nupkg.sha512",
-    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
+    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.24.0\\microsoft.identitymodel.tokens.6.24.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -51,15 +51,5 @@
     "C:\\Users\\cstanley\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package Microsoft.AspNetCore.Authentication.JwtBearer 7.0.0-rc.2.22476.2 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.AspNetCore.Authentication.JwtBearer 7.0.0-rc.2.22476.2 supports: net7.0 (.NETCoreApp,Version=v7.0)",
-      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
