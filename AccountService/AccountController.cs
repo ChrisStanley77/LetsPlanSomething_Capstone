@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("account")]
     public class Controller : ControllerBase
@@ -17,6 +19,7 @@ namespace Controllers
 //////////////////////////////////////////////// Account Creation Endpoints ////////////////////////////////////////////////////////////////
 
         //Create an account
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IResult> CreateAccount(Account account)
         {
