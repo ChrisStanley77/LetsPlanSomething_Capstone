@@ -41,28 +41,34 @@ namespace Controllers
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate ([FromBody] UserCredentails userCredentails)
         {
-            var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username && a.Password == userCredentails.password);
+            var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username);            
             
             if(user == null)
             {
+                return NotFound();
+            }
+            else if(ValidatePassword(userCredentails.password, user.Password))
+            {
+                //Generate token
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenKey = Encoding.UTF8.GetBytes(appSettings.Secret);
+                var tokenDescriptor = new SecurityTokenDescriptor{
+                    Subject = new ClaimsIdentity(
+                        new Claim[]{new Claim(ClaimTypes.Name, user.Username)}
+                    ),
+                    Expires = DateTime.UtcNow.AddMinutes(10),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
+                };
+
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                string finalToken = tokenHandler.WriteToken(token);
+                
+                return Ok(finalToken);
+            }
+            else
+            {
                 return Unauthorized();
             }
-
-            //Generate token
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.UTF8.GetBytes(appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor{
-                Subject = new ClaimsIdentity(
-                    new Claim[]{new Claim(ClaimTypes.Name, user.Username)}
-                ),
-                Expires = DateTime.UtcNow.AddMinutes(10),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            string finalToken = tokenHandler.WriteToken(token);
-            
-            return Ok(finalToken);
         }
 
 //////////////////////////////////////////////// Account Get Endpoints /////////////////////////////////////////////////////////////////////
