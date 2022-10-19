@@ -5,11 +5,11 @@ GO
 use LetsPlanSomething
 CREATE TABLE Accounts (
 	Id int IDENTITY(1,1) PRIMARY KEY,
-	FirstName varchar(50) NOT NULL,
-	LastName varchar(50),
-	Email varchar(50) NOT NULL,
-	Username varchar(50) NOT NULL,
-	Password varchar(50) NOT NULL
+	FirstName varchar(100) NOT NULL,
+	LastName varchar(100),
+	Email varchar(100) NOT NULL,
+	Username varchar(100) NOT NULL,
+	Password varchar(200) NOT NULL
 );
 GO
 

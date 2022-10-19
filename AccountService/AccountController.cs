@@ -1,6 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System.Security.Claims;
 
 namespace Controllers
 {
@@ -10,10 +15,12 @@ namespace Controllers
     public class Controller : ControllerBase
     {
         private readonly AccountDB _ACDB;
+        private readonly AppSettings appSettings;
         
-        public Controller(ILogger<Controller> logger, AccountDB acdb)
+        public Controller(ILogger<Controller> logger, AccountDB acdb, IOptions<AppSettings> options)
         {            
             _ACDB = acdb;
+            appSettings = options.Value;
         }
 
 //////////////////////////////////////////////// Account Creation Endpoints ////////////////////////////////////////////////////////////////
@@ -23,18 +30,49 @@ namespace Controllers
         [HttpPost]
         public async Task<IResult> CreateAccount(Account account)
         {
+            account.Password = HashPassword(account.Password);
             _ACDB.Accounts.Add(account);
             await _ACDB.SaveChangesAsync();
             return Results.Created($"/{account.Username}", account);
         }
 
+        // I think this will be the login part I think....
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate ([FromBody] UserCredentails userCredentails)
+        {
+            var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username && a.Password == userCredentails.password);
+            
+            if(user == null)
+            {
+                return Unauthorized();
+            }
+
+            //Generate token
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenKey = Encoding.UTF8.GetBytes(appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor{
+                Subject = new ClaimsIdentity(
+                    new Claim[]{new Claim(ClaimTypes.Name, user.Username)}
+                ),
+                Expires = DateTime.UtcNow.AddMinutes(10),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            string finalToken = tokenHandler.WriteToken(token);
+            
+            return Ok(finalToken);
+        }
+
 //////////////////////////////////////////////// Account Get Endpoints /////////////////////////////////////////////////////////////////////
 
         //Get an account by email
-        [HttpGet("{email}")]
+        [HttpGet]
+        [Route("/email/{email}")]
         public async Task<ActionResult<Account>> GetAccount(string email)
         {
-            var account = await _ACDB.Accounts.Where(m => m.Email  == email).ToListAsync();
+            var account = await _ACDB.Accounts.FirstOrDefaultAsync(m => m.Email.Equals(email));
             
             if(account == null)
             {
@@ -88,6 +126,21 @@ namespace Controllers
             }
             
             return Results.NotFound();
+        }
+
+        public static string GeneratePasswordSalt()
+        {
+            return BCrypt.Net.BCrypt.GenerateSalt(12);
+        }
+
+        public static string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password, GeneratePasswordSalt());
+        }
+
+        public static bool ValidatePassword(string password, string databaseHash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, databaseHash);
         }
     }
 }

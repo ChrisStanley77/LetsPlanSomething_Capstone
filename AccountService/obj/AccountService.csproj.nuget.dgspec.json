@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj": {}
+    "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj": {}
   },
   "projects": {
-    "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj": {
+    "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
+        "projectUniqueName": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
         "projectName": "AccountService",
-        "projectPath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
+        "projectPath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
         "packagesPath": "C:\\Users\\cstanley\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\obj\\",
+        "outputPath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
