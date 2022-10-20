@@ -89,6 +89,20 @@ namespace Controllers
         }
 
         [HttpGet]
+        [Route("password")]
+        public async Task<ActionResult<string>> GetPassword(string username)
+        {
+            var account = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username.Equals(username));
+
+            if(account == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(account.Password);
+        }
+
+        [HttpGet]
         [Route("test")]
         public ActionResult<String> TestEndPoint(){
             return "Test Succesful";
@@ -98,25 +112,61 @@ namespace Controllers
 
         //Update account by email
         [HttpPut]
-        public async Task<IResult> UpdateAccount(Account accountUpdateWith)
+        [Route("updateuser")]
+        public async Task<IResult> UpdateAccount(UserDTO userDTO)
         {
-            var accountToUpdate = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username.Equals(accountUpdateWith.Username));
+            var accountToUpdate = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username.Equals(userDTO.Username));
 
             if(accountToUpdate == null)
             {
                 return Results.NotFound();
             }
 
-            //Update Values
-            accountToUpdate.Email = accountUpdateWith.Email;
-            accountToUpdate.Firstname = accountUpdateWith.Firstname;
-            accountToUpdate.Lastname = accountUpdateWith.Lastname;
-            accountToUpdate.Password = accountUpdateWith.Password;
+            if(User?.Identity?.Name == accountToUpdate.Username)
+            {
+                //Update Values
+                accountToUpdate.Email = userDTO.Email;
+                accountToUpdate.Firstname = userDTO.Firstname;
+                accountToUpdate.Lastname = userDTO.Lastname;
 
-            await _ACDB.SaveChangesAsync();
+                accountToUpdate.Password = HashPassword(accountToUpdate.Password);
 
-            return Results.NoContent();
+                await _ACDB.SaveChangesAsync();
+
+                return Results.NoContent();
+            }
+            else
+            {
+                return Results.Forbid();
+            }       
         } 
+
+        [HttpPut]
+        [Route("updatepassword")]
+        public async Task<IResult> UpdatePassword(UserPasswordUpdate newPassword)
+        {
+            var accountToUpdate = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username.Equals(newPassword.Username));
+
+            if(accountToUpdate == null)
+            {
+                return Results.NotFound();
+            }
+            else if(User?.Identity?.Name == accountToUpdate.Username)
+            {
+                //Update Values
+                accountToUpdate.Password = newPassword.Password;
+
+                accountToUpdate.Password = HashPassword(accountToUpdate.Password);
+
+                await _ACDB.SaveChangesAsync();
+
+                return Results.NoContent();
+            }
+            else 
+            {
+                return Results.Forbid();
+            }
+        }
 
 ////////////////////////////////////////////////// Account Delete Endpoints //////////////////////////////////////////////////////////////////
 
