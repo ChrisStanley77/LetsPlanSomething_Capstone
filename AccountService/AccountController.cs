@@ -28,7 +28,7 @@ namespace Controllers
         //Create an account
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IResult> CreateAccount(Account account)
+        public async Task<IResult> CreateAccount([FromBody] Account account)
         {
             account.Password = HashPassword(account.Password);
             _ACDB.Accounts.Add(account);
