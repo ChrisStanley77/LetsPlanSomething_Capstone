@@ -36,9 +36,10 @@ namespace Controllers
             return Results.Created($"/{account.Username}", account);
         }
 
-        // I think this will be the login part I think....
+        // I think this will be the login part, I think....
+        // This also might need to change from a Task<IActionResult> to just a string being returned.
         [AllowAnonymous]
-        [HttpPost("authenticate")]
+        [HttpPost("login")]
         public async Task<IActionResult> Authenticate ([FromBody] UserCredentails userCredentails)
         {
             var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username);            
