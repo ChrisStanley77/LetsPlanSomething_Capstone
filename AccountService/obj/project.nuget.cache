@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IfiKzUdLI2v+4pw3VvKcw2whqDS1Nsnqt6FNL/u/xBGkrmMyywpQd6sqDeMvYtXcskWFHJwgUvJLfyQ9XJGq9w==",
+  "dgSpecHash": "uaNle5uNyaEctDSCq/fYVsX8lG4lDiR2dpSMhqoP7jv3MqAaHGSv1U0WpLsWVHSjho+iV3uhO7MPxu75C/iERQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
+  "projectFilePath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\AccountService\\AccountService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cstanley\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\cstanley\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",
