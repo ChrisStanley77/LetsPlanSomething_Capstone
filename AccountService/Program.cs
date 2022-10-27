@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AccountDB>(opt => opt.UseSqlServer(builder.Configu
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddAuthentication(i =>{
     i.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    i.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     i.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     }).AddJwtBearer(i => {
         i.RequireHttpsMetadata = true;
@@ -18,7 +19,9 @@ builder.Services.AddAuthentication(i =>{
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("AppSettings:Secret"))),
             ValidateIssuer = false,
-            ValidateAudience = false
+            ValidateAudience = false,
+            RequireExpirationTime = false,
+            ValidateLifetime = true,
         };
     });
 builder.Services.AddCors(options =>
