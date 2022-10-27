@@ -72,14 +72,6 @@ namespace Controllers
             }
         }
 
-        [HttpPost]
-        [Route("logout")]
-        public async Task<IActionResult> LogoutUser(string token)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            return Ok();
-        }
-
 //////////////////////////////////////////////// Account Get Endpoints /////////////////////////////////////////////////////////////////////
 
         //Get an account by email
