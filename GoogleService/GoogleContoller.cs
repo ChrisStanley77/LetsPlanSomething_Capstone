@@ -12,6 +12,8 @@ namespace Controllers
         public Task<ActionResult> GetByPlace()
         {
             var key = Environment.GetEnvironmentVariable("GOOGLE_API_KEY");
+
+            
         }
     }
 }
