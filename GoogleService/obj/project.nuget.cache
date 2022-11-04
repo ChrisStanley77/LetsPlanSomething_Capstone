@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "h/O07EzGDcJGOqSEViPaTfJm/uUWOJ6SQnV8e69uibYhd7iMxAX33ET61i7aHw1rblLvq91mXAzBwaeHSzxxzw==",
+  "dgSpecHash": "Mwd0c/LxOHCJIJAu/TaCXUNsXsLk90L0XI80TtUC9hdDWwwOJeOLxTsBpyqFL7PN3xBckWEj0MIY8UQ5kljxZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cstanley\\.nuget\\packages\\dotenv.net\\3.1.1\\dotenv.net.3.1.1.nupkg.sha512"
+  ],
   "logs": []
 }

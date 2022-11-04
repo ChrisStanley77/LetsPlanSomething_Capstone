@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj": {}
+    "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj": {
+    "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
+        "projectUniqueName": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
         "projectName": "GoogleService",
-        "projectPath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
+        "projectPath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\GoogleService.csproj",
         "packagesPath": "C:\\Users\\cstanley\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\obj\\",
+        "outputPath": "c:\\Users\\cstanley\\git\\LetsPlanSomething_Capstone\\GoogleService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
