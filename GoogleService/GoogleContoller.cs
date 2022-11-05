@@ -1,4 +1,7 @@
 using System;
+using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace Controllers
 {
@@ -9,11 +12,11 @@ namespace Controllers
 
         [HttpGet]
         [Route("getPlace")]
-        public Task<ActionResult> GetByPlace()
+        public string GetByPlace()
         {
             var key = Environment.GetEnvironmentVariable("GOOGLE_API_KEY");
 
-            
+            return "";
         }
     }
 }
