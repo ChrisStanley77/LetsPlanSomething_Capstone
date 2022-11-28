@@ -55,3 +55,8 @@ C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\AccountService.pdb
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\AccountService.genruntimeconfig.cache
 C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\ref\AccountService.dll
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\staticwebassets\msbuild.AccountService.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\staticwebassets\msbuild.build.AccountService.props
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AccountService.props
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AccountService.props
+C:\Users\cstanley\git\LetsPlanSomething_Capstone\AccountService\obj\Debug\net6.0\staticwebassets.pack.json

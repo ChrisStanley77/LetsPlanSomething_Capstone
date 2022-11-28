@@ -40,13 +40,14 @@ namespace Controllers
         // This also might need to change from a Task<IActionResult> to just a string being returned.
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<string> Authenticate ([FromBody] UserCredentails userCredentails)
+        public async Task<IResult> Authenticate ([FromBody] UserCredentails userCredentails)
         {
             var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username);            
             
             if(user == null)
             {
-                return "Account not found";
+                return Results.NotFound();
+                //  "Account not found"
             }
             else if(ValidatePassword(userCredentails.password, user.Password))
             {
@@ -64,11 +65,13 @@ namespace Controllers
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 string finalToken = tokenHandler.WriteToken(token);
                 
-                return finalToken;
+                return Results.Accepted();
+                // finalToken
             }
             else
             {
-                return "Username or password incorrect";
+                return Results.Unauthorized();
+                // "Username or password incorrect"
             }
         }
 
