@@ -64,8 +64,15 @@ namespace Controllers
 
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 string finalToken = tokenHandler.WriteToken(token);
+
+                UserLoginDTO userDto = new UserLoginDTO();
+                userDto.Firstname = user.Firstname;
+                userDto.Lastname = user.Lastname;
+                userDto.Email = user.Email;
+                userDto.Username = user.Username;
+                userDto.Token = finalToken;
                 
-                return Results.Accepted();
+                return Results.Accepted($"/{userDto.Username}", userDto); 
                 // finalToken
             }
             else
