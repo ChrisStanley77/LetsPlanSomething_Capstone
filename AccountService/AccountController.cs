@@ -40,14 +40,14 @@ namespace Controllers
         // This also might need to change from a Task<IActionResult> to just a string being returned.
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IResult> Authenticate ([FromBody] UserCredentails userCredentails)
+        public async Task<string> Authenticate ([FromBody] UserCredentails userCredentails)
         {
             var user = await _ACDB.Accounts.FirstOrDefaultAsync(a => a.Username == userCredentails.username);            
             
             if(user == null)
             {
-                return Results.NotFound();
-                //  "Account not found"
+                //return Results.NotFound();
+                return "Account not found";
             }
             else if(ValidatePassword(userCredentails.password, user.Password))
             {
@@ -65,20 +65,20 @@ namespace Controllers
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 string finalToken = tokenHandler.WriteToken(token);
 
-                UserLoginDTO userDto = new UserLoginDTO();
-                userDto.Firstname = user.Firstname;
-                userDto.Lastname = user.Lastname;
-                userDto.Email = user.Email;
-                userDto.Username = user.Username;
-                userDto.Token = finalToken;
+                // UserLoginDTO userDto = new UserLoginDTO();
+                // userDto.Firstname = user.Firstname;
+                // userDto.Lastname = user.Lastname;
+                // userDto.Email = user.Email;
+                // userDto.Username = user.Username;
+                // userDto.Token = finalToken;
                 
-                return Results.Accepted($"/{userDto.Username}", userDto); 
-                // finalToken
+                //return Results.Accepted($"/{userDto.Username}", userDto); 
+                return finalToken;
             }
             else
             {
-                return Results.Unauthorized();
-                // "Username or password incorrect"
+                //return Results.Unauthorized();
+                return "Username or password incorrect";
             }
         }
 
